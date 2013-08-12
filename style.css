@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Stencil-Style-New';
+    src: url('font/stencil_style_new/StencilStyleNew.ttf');
+}
+
+#menu
+{
+	display: inline;
+	/*position:fixed;*/
+	float: left;
+	border: 1px solid;
+	border-radius: 10px;
+	padding-top: 10px
+	/*padding-right: */
+} 
+
+#h3,menu
+{
+	padding: center;
+}
+
+#pied_de_page
+{
+	/* display: inline;*/
+}
+
+#footer
+{
+	border: 1px solid;
+	border-radius: 10px;
+	float: right;
+}
+
+h1
+{
+    /*border: 3px blue dashed;*/
+	font-family: 'Stencil-Style-New';
+	font-size: 50px;
+	display: inline;
+}
+
+body
+{
+    background-color: green; /* Le fond de la page sera noir */
+    color: black; /* Le texte de la page sera blanc */
+}
+
+
+tr
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+
+td,th
+{
+    border: 1px solid black;
+}
+
+#fiche, td,th
+{
+    border: 1px solid yellow;
+}
+
+.Tableau span {
+   display:inline;
+   float:left;
+   border:1px solid #FF6600;
+  }
+
+.Tableau p.legende {font-weight:bold}
+.Tableau span.col1 {width:24%;}
+.Tableau span.col2 {width:24%;}
+.Tableau span.col3 {width:24%;}
+.Tableau span.col4 {width:24%;}
+.Tableau span.col5 {width:48%;}
+.Tableau span.col6 {width:48%;}
