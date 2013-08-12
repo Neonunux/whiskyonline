@@ -28,7 +28,7 @@
 	else
 	$fiche = 1;
 
-	include("bdd.php");
+	
 
 	// VISIBILITÉ PUB -> VIS_PRIV
 	$catid = $instcat->getCategories();
@@ -52,9 +52,12 @@
 	echo '</tr>';
 	
 	// CONTENU
-	$req = $bdd->query('SET NAMES UTF8');
-	$req = $bdd->query('SELECT * FROM raph');
-	while($donnees = $req->fetch()) // boucle sur lecture de l'entrée
+	include("bdd.php");
+	$sql ='SET NAMES UTF8';	
+	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	$sql='SELECT * FROM raph';
+	$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	while($donnees = mysql_fetch_assoc($req)) // boucle sur lecture de l'entrée
 	{
 		echo '           <tr>';
 		if (isset($_SESSION['id']))
@@ -65,7 +68,7 @@
 					echo '<td><a href="fiche.php?fiche=' . $donnees['id'] . '">' . $donnees[$item[0]] . '</a></td>';
 			}				
 		}
-		else 
+		else
 		{
 			foreach ($catid as $item)
 			{
@@ -79,7 +82,7 @@
 		echo '           </tr>';
 	}
 	echo '            </table><br /><br />';
-	$req->closeCursor();
+	mysql_close();
 	?>
 	
 	</body>

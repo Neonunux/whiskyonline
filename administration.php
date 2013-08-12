@@ -18,25 +18,24 @@
 	  $catid = $instcat->getCategories();
 	  
 	  // CATEGORIES -> $arr
-	  $query = $bdd->query('DESC whiskyonline.raph');
-	  while($data = $query->fetch()) // boucle sur lecture de l'entrée
-	  {
-	 	$text=$data['Field'];
-		$arr[]=$text;
-	  }
-	  if (!isset($_SESSION['id']))
-	  { 
-	  // Hachage du mot de passe
+		include("bdd.php");
+		$sql ='SET NAMES UTF8';	
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+
+	if (!isset($_SESSION['id']))
+	{ 
+		include("bdd.php");
+		$sql ='SET NAMES UTF8';	
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+
+	// Hachage du mot de passe
 	  $pass_hache = sha1($_POST['passwd']);
 	  $pseudo = $_POST['pseudo'];
 	  
 	  // Vérification des identifiants
-	  $req = $bdd->prepare('SELECT id FROM raph_conf WHERE pseudo = :pseudo AND passwd = :passwd');
-	  $req->execute(array(
-		  'pseudo' => $pseudo,
-		  'passwd' => $pass_hache));
+	  $req = mysql_query('SELECT id FROM raph_conf WHERE pseudo = ' . $pseudo . ' AND passwd = ' . $pass_hache) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	   
-	  $resultat = $req->fetch();
+	  $resultat = mysql_fetch_assoc($req);
 	  /*		if (isset($_POST['passwd']) AND $_POST['passwd'] ==  ) */
 	  if (!$resultat)
 		  echo 'Mauvais identifiant ou mot de passe !<br/>';

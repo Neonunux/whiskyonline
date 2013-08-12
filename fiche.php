@@ -42,12 +42,15 @@
 			$instcat = new Categories();
 
 			// VISIBILITÉ PUB -> VIS_PRIV
-			$catid = $instcat->getCategories();	
-						
-			$req = $bdd->query('SET NAMES UTF8');
-			$req = $bdd->prepare('SELECT * FROM raph WHERE id = ?');
-			$req->execute(array($fiche));
-			while($donnees = $req->fetch()) // boucle sur lecture de l'entrée
+			$catid = $instcat->getCategories();
+			
+			include("bdd.php");
+			$sql ='SET NAMES UTF8';	
+			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+			$sql='SELECT * FROM raph WHERE id = ' . $fiche;
+			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+			
+			while($donnees = mysql_fetch_assoc($req)) // boucle sur lecture de l'entrée
 			{ 
 					echo '<table id="fiche">';
 				if (isset($_SESSION['id']))
@@ -71,7 +74,7 @@
 				echo '           </tr>';
 			}
 			echo '            </table><br /><br />';
-			$req->closeCursor();
+			mysql_close();
 		}
 
 		/*  if (!is_numeric($_POST['id_whisky']))

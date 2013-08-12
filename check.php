@@ -43,27 +43,28 @@ if (isset($_POST['checkbox']))
 	echo 'fiche pub';
 	print_r($listepub);
 	echo '</pre>';
+	
+	include("bdd.php");
+	
+	foreach ($listepub as $item)
+	{
+	$query = $bdd->query('UPDATE `whiskyonline`.`raph_categ` SET `liste_pub` = `1` WHERE `raph_categ`.`id` = ' . $item);
+
+	}
 }
 else 
 	echo 'pas de changement';
-/*
-  include("bdd.php");
-foreach ($fichepriv as $item)
-{
-$query = $bdd->prepare('UPDATE `whiskyonline`.`raph_categ` SET `fiche_priv` = '1' WHERE `raph_categ`.`id` = ?');
-$query->execute(array('id' => $id));
 
-$data = $query->fetch();
-$query->closeCursor();
-}
-*/
+
 
 
 /*
-UPDATE `whisky`.`raph_categ` SET `fiche_priv` = '1',
+UPDATE `whiskyonline`.`raph_categ` SET 
+`fiche_priv` = '1',
 `fiche_pub` = '1',
 `liste_priv` = '1',
-`liste_pub` = '1' WHERE `raph_categ`.`id` =7;
+`liste_pub` = '1' 
+WHERE `raph_categ`.`id` =7;
 
 effacer une colonne :
 UPDATE `raph_categ` SET `fiche_pub` = '', 
