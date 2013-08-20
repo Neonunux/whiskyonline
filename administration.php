@@ -1,8 +1,8 @@
 <?php
 	// On démarre la session AVANT d'écrire du code HTML
 	session_start();
-	setcookie('pseudo', '', time() + 365*24*3600, null, null, false, true); // On écrit un cookie
-	setcookie('passwd', '', time() + 365*24*3600, null, null, false, true); // On écrit un autre cookie...
+	//setcookie('pseudo', '', time() + 365*24*3600, null, null, false, true); // On écrit un cookie
+	//setcookie('passwd', '', time() + 365*24*3600, null, null, false, true); // On écrit un autre cookie...
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
@@ -33,7 +33,7 @@
 	  $pseudo = $_POST['pseudo'];
 	  
 	  // Vérification des identifiants
-	  $req = mysql_query('SELECT id FROM raph_conf WHERE pseudo = ' . $pseudo . ' AND passwd = ' . $pass_hache) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	  $req = mysql_query('SELECT id FROM raph_conf WHERE pseudo = \'' . $pseudo . '\' AND passwd = \'' . $pass_hache. '\'') or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	   
 	  $resultat = mysql_fetch_assoc($req);
 	  /*		if (isset($_POST['passwd']) AND $_POST['passwd'] ==  ) */
@@ -43,8 +43,8 @@
 	  {
 		  $_SESSION['id'] = $resultat['id'];
 		  $_SESSION['pseudo'] = $pseudo;
-		  $_COOKIE['pseudo'] =  $pseudo;
-		  $_COOKIE['passwd'] =  $pass_hache;
+		  //$_COOKIE['pseudo'] =  $pseudo;
+		  //$_COOKIE['passwd'] =  $pass_hache;
 	  }
 	  
 	}

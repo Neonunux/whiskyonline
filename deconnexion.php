@@ -13,8 +13,8 @@
 	session_destroy();
 	 
 	// Suppression des cookies de connexion automatique
-	setcookie('login', '');
-	setcookie('pass_hache', '');
+	//setcookie('login', '');
+	//setcookie('pass_hache', '');
 	include("include/menu.php");
 	echo 'Vous avez été déconnecté';
 	?>   

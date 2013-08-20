@@ -18,7 +18,7 @@ class Categories
 	
 	public function getCategories()
 	{
-		include("bdd.php");
+		include_once("bdd.php");
 			
 		$sql ='SET NAMES UTF8';	
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
