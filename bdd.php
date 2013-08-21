@@ -1,16 +1,7 @@
 <?php
-	// try
-	// {
-		// $bdd = new PDO('mysql:host=whiskyonline.sql.free.fr;dbname=whiskyonline', 'whiskyonline', 'MDPSQLINTERFACE3');
-		// $bdd = new PDO('mysql:host=localhost;dbname=whiskyonline', 'root', '');
-	// }
-	// catch(Exception $e)
-	// {
-		// die('Erreur : '.$e->getMessage());
-	// }
-		switch ($_SERVER['SERVER_NAME']) 
+	switch ($_SERVER['SERVER_NAME']) 
 	{
-	  case "whiskyonline.free.fr":
+	  case "site.free.fr":
 		$db_host = 'sql.free.fr';
 		$db_name = 'whiskyonline';
 		$db_username = 'whiskyonline';
