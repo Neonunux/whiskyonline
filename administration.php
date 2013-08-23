@@ -44,6 +44,7 @@
 	  {
 		  $_SESSION['id'] = $resultat['id'];
 		  $_SESSION['pseudo'] = $pseudo;
+		  $_SESSION['passwd'] = $pass_hache;
 		  //$_COOKIE['pseudo'] =  $pseudo;
 		  //$_COOKIE['passwd'] =  $pass_hache;
 	  }
@@ -60,8 +61,12 @@
 		
 		echo '<div class="texte">';
 		echo '
-		login :' . $_SESSION['pseudo'] . '<br/>
-		Changement du mot de passe : <br/>
+		<div class="essai">
+			<p>
+			<span>login :' . $_SESSION['pseudo'] . '<input type="entry" name="pseudo" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			<span>Changement du mot de passe : <input type="password" name="passwd" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			</p>
+		</div>
 		<br/>
 		Visibilités des catégories :<br/>';
 
