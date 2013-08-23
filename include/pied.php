@@ -1,4 +1,4 @@
-       <div id="pied_de_page">
+       <div class="pied_de_page">
            <?php
 		   if (isset($_SESSION['id']))
 		   {

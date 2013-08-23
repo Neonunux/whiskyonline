@@ -1,4 +1,4 @@
-	   <div id="corps">
+	   <div class="corps">
            <h1>Mon super site sur mes whisky</h1>
         
            <p>

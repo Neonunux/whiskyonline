@@ -1,4 +1,4 @@
-       <div id="menu">        
+       <div class="menu">        
            <div class="element_menu">
                <h3>Plan du site</h3>
                <ul>
