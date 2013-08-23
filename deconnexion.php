@@ -6,7 +6,11 @@
   <?php include("include/header.php"); ?>
   
    <body>
-   <?php include("include/menu.php");?>
+   
+   <?php 
+   	$_SESSION = array();
+	session_destroy();
+   include("include/menu.php");?>
    
    <h1>Déconnexion</h1>
    
@@ -14,8 +18,7 @@
 
    <?php
 	// Suppression des variables de session et de la session
-	$_SESSION = array();
-	session_destroy();
+
 	 
 	// Suppression des cookies de connexion automatique
 	//setcookie('login', '');
