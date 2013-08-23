@@ -3,6 +3,9 @@
   <?php include("include/header.php"); ?>
   
    <body>
+		<h1>Connexion</h1>
+		<?php include ("include/menu.php"); ?>
+		<div class="texte">
 		<form action="administration.php" method="post">
 		<p>
 			<input type="entry" name="pseudo" value="admin" />
@@ -13,6 +16,7 @@
 			<input type="submit" value="Valider" />
 		</p>
 		</form>	
+		</div>
    </body>
    <!-- Le pied de page -->
 	   <?php include("include/pied.php"); ?>

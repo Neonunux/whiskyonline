@@ -10,8 +10,11 @@
 	<?php
 		include("include/menu.php");
 		include("bdd.php");
-		include_once("Categories.class.php");
+		include_once("class/Categories.class.php");
 		
+		echo '<h1>Fiches</h1>';
+		
+		echo '<div class="texte">';
 		if ((isset($_POST['id_whisky'])) AND (is_numeric($_POST['id_whisky'])))
 		{ 
 		 $fiche = $_POST['id_whisky'];
@@ -55,12 +58,12 @@
 					echo '<table id="fiche">';
 				if (isset($_SESSION['id']))
 				{ // admin
-					echo 't\'es admin ';
+					//echo 't\'es admin ';
 					foreach ($catid as $item)
 					{			
 						if ($item[5])
 							echo '<tr><td>' . $item[1] . '</td><td>' . $donnees[$item[0]] . '</td></tr>';
-					print_r($item[3]);
+						//print_r($item[3]);
 					}			
 				}
 				else 
@@ -81,6 +84,7 @@
 		{
 			echo 'erreur de saisie';
 		} */
+		echo '</div>';
 		echo '</div>';
 	?>
    </body>

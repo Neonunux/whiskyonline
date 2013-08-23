@@ -6,6 +6,11 @@
   <?php include("include/header.php"); ?>
   
    <body>
+   <?php include("include/menu.php");?>
+   
+   <h1>Déconnexion</h1>
+   
+   <div class="texte" >
 
    <?php
 	// Suppression des variables de session et de la session
@@ -15,10 +20,10 @@
 	// Suppression des cookies de connexion automatique
 	//setcookie('login', '');
 	//setcookie('pass_hache', '');
-	include("include/menu.php");
+	
 	echo 'Vous avez été déconnecté';
 	?>   
-
+	</div>
    </body>
    <!-- Le pied de page -->
 	   <?php include("include/pied.php"); ?>

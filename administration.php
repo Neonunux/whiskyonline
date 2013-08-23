@@ -10,9 +10,10 @@
 	<?php include("include/header.php"); ?>
 		
 	<body>
+	
 	<?php
 	  include("bdd.php");
-	  include_once("Categories.class.php");
+	  include_once("class/Categories.class.php");
 	  
 	  $instcat = new Categories();
 	  $catid = $instcat->getCategories();
@@ -53,15 +54,17 @@
 	 // echo 'mdp (sha1):' . sha1($_POST['passwd']). '<br>';
 	if (isset($_SESSION['id']))
 	{
-		echo 'Tu t\'es connecté !<br/>';
-		echo 'T\'es administrateur<br/>';
-		echo 'C\'est la fête<br/>';
-		echo '   
+		echo '<div class="titre">';
+		echo '<h1>Administration</h1>';
+		echo '</div>';
+		
+		echo '<div class="texte">';
+		echo '
 		login :' . $_SESSION['pseudo'] . '<br/>
 		Changement du mot de passe : <br/>
 		<br/>
-		Catégories :<br/>
-		Catégories à supprimer :';
+		Visibilités des catégories :<br/>';
+
 
 		
 		echo '<form action="check.php" method="post">';
@@ -90,17 +93,25 @@
 			}
 		echo '</div>';
 		echo '<input type="submit" value="Valider" />
-		</form>
-		';
-
-		echo '<select name="categ">';
+		</form>';
+		
+				
+		echo 'Catégories à supprimer :';
+		echo '<form action="check.php" method="post" >
+		<div class="mesgenoux ">
+				
+		<select name="categ">'; 
 		echo '<option value="val">--</option>';
 		foreach ($catid as $item)
 		echo '<option value="val">'. $item[1] . '</option>';
-		echo '</select>';
+		echo '</select>
+		<input type="submit" value="Supprimer" />
+		</div>
+		</form>';
 	}
 	else
 		echo 'pas d"id';
+	echo '</div>';
    ?>
 	</body>
 	<!-- Le pied de page -->
