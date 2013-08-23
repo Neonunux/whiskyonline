@@ -2,49 +2,53 @@
     font-family: 'Stencil-Style-New';
     src: url('font/stencil_style_new/StencilStyleNew.ttf');
 }
-
-#menu
-{
-	display: inline;
-	/*position:fixed;*/
-	float: left;
-	border: 1px solid;
-	border-radius: 10px;
-	padding-top: 10px
-	/*padding-right: */
-} 
-
-#h3,menu
-{
-	padding: center;
+body {
+    background-color: green;
+    font-size: 0.9em;
+    margin: 2em 1%;
+    padding: 0;
 }
-
-#pied_de_page
-{
-	/* display: inline;*/
+.texte {
+    background-color: green;
+    margin-bottom: 1em;
 }
+.pied_de_page {
+    background-color: green;
+}
+h1, h2, h3 {
 
-#footer
-{
-	border: 1px solid;
-	border-radius: 10px;
+}
+h1 {
+    font-family: 'Stencil-Style-New';
+    margin-bottom: 1em;
+	font-size: 1em;
+}
+code, pre {
+    color: #339900;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 1em;
+}
+pre {
+    border-left: 5px solid #A2C2E1;
+    margin-left: 2em;
+    padding: 0.5em 1em;
+}
+h1, .texte, .pied_de_page {
+    width: 80%;
+	border: 3px solid;
+	padding: 1em;
 	float: right;
+	margin-top: 0em;
+	margin-right: 1%;
 }
-
-h1
-{
-    /*border: 3px blue dashed;*/
-	font-family: 'Stencil-Style-New';
-	font-size: 50px;
-	display: inline;
+.menu {
+    border: 3px solid;
+    padding: 1em;
+    position: fixed;
+    left: 1em;
+    top: 2em;
+    width: 11%;
 }
-
-body
-{
-    background-color: green; /* Le fond de la page sera noir */
-    color: black; /* Le texte de la page sera blanc */
-}
-
 
 tr
 {
@@ -64,13 +68,20 @@ td,th
 .Tableau span {
    display:inline;
    float:left;
-   border:1px solid #FF6600;
+   border:1px solid #FFFFFF;
+   padding: 0.1%;
+   
   }
 
 .Tableau p.legende {font-weight:bold}
+
 .Tableau span.col1 {width:24%;}
 .Tableau span.col2 {width:24%;}
 .Tableau span.col3 {width:24%;}
 .Tableau span.col4 {width:24%;}
-.Tableau span.col5 {width:48%;}
-.Tableau span.col6 {width:48%;}
+.Tableau span.col5 {width:48.15%;}
+.Tableau span.col6 {width:48.15%;}
+
+
+
+
