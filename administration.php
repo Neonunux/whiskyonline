@@ -63,8 +63,8 @@
 		echo '
 		<div class="essai">
 			<p>
-			<span>login :' . $_SESSION['pseudo'] . '<input type="entry" name="pseudo" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
-			<span>Changement du mot de passe : <input type="password" name="passwd" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			<span>login : <input type="entry" name="pseudo" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			<span>Changement du mot de passe : <input type="password" name="passwd" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
 			</p>
 		</div>
 		<br/>
