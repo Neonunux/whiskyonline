@@ -49,32 +49,25 @@ h1, .texte, .pied_de_page {
     top: 2em;
     width: 11%;
 }
-
 tr
 {
     border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
 }
-
 td,th
 {
     border: 1px solid black;
 }
-
 #fiche, td,th
 {
     border: 1px solid yellow;
 }
-
 .Tableau span {
    display:inline;
    float:left;
    border:1px solid #FFFFFF;
    padding: 0.1%;
-   
-  }
-
+}
 .Tableau p.legende {font-weight:bold}
-
 .Tableau span.col1 {width:24%;}
 .Tableau span.col2 {width:24%;}
 .Tableau span.col3 {width:24%;}

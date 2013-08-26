@@ -77,7 +77,7 @@
 			// titre 1re ligne
 			echo '<p class="legende">';
 			echo '<span class="col5" rowspan="2">Listes</span>';
-			echo '<span class="col6" rowspan="2">Fiches</span>';
+			echo '<span class="col5" rowspan="2">Fiches</span>';
 			echo '</p>';
 			// titre 2e ligne
 			echo '<p class="legende">';
@@ -100,10 +100,27 @@
 		echo '<input type="submit" value="Valider" />
 		</form>';
 		
-				
+		echo 'Catégories à ajouter :';
+		echo '<form action="check_cat.php" method="post" >
+		<div class="catdelete ">
+		<span>
+		<select name="categ">'; 
+		echo '<option value="chaine">Chaîne de caractères</option>';
+		echo '<option value="entier">Entier</option>';
+		echo '<option value="decimal">Décimal</option>';
+		echo '<option value="date">Date</option>';
+		echo '</select>
+		</span>
+		<span>
+		<input type="entry" name="catadd" />
+		<input type="submit" value="Ajouter" />
+		</span>
+		</div>
+		</form>';
+		
 		echo 'Catégories à supprimer :';
 		echo '<form action="check.php" method="post" >
-		<div class="mesgenoux ">
+		<div class="catdelete ">
 				
 		<select name="categ">'; 
 		echo '<option value="val">--</option>';
