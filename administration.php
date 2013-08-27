@@ -8,7 +8,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 
 	<?php include("include/header.php"); ?>
-		
+	<script language="Javascript">
+	<!--
+	function selectAll(theField) {
+	var tempval=eval("document."+theField)
+	tempval.focus()
+	tempval.select()
+	}
+	//-->
+	</script>
+	
 	<body>
 	
 	<?php
@@ -48,7 +57,6 @@
 		  //$_COOKIE['pseudo'] =  $pseudo;
 		  //$_COOKIE['passwd'] =  $pass_hache;
 	  }
-	  
 	}
 	include("include/menu.php");
 	 // echo 'mdp :' . $_POST['passwd']. '<br>';
@@ -63,8 +71,11 @@
 		echo '
 		<div class="essai">
 			<p>
-			<span>login : <input type="entry" name="pseudo" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
-			<span>Changement du mot de passe : <input type="password" name="passwd" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			<form name="adminom" >
+			<span>login : <input type="entry" name="pseudo" onfocus="selectAll(\'adminom.pseudo\')" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></form></span><br/>
+			<form name="adminpswd" >
+			<span>Changement du mot de passe : <input type="password" name="passwd" onfocus="selectAll(\'adminpswd.passwd\')" value="'. $_SESSION['pseudo'].'" /></span><br/>
+			<span>Confirmation du mot de passe : <input type="password" name="passwd" onfocus="selectAll(\'adminpswd.passwd\')" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
 			</p>
 		</div>
 		<br/>
@@ -73,62 +84,65 @@
 
 		
 		echo '<form action="check.php" method="post">';
-		echo '<div class="Tableau">';
+		echo '<table class="Tableau">';
 			// titre 1re ligne
-			echo '<p class="legende">';
-			echo '<span class="col5" rowspan="2">Listes</span>';
-			echo '<span class="col5" rowspan="2">Fiches</span>';
-			echo '</p>';
+			echo '<tr class="legende">';
+			echo '<th class="col5" colspan="2">Listes</th>';
+			echo '<th class="col5" colspan="2">Fiches</th>';
+			echo '</tr>';
 			// titre 2e ligne
-			echo '<p class="legende">';
-			echo '<span class="col1">Anomymes</span>';
-			echo '<span class="col2">' . $_SESSION['pseudo'] . '</span>';
-			echo '<span class="col3">Anomymes</span>';
-			echo '<span class="col4">' . $_SESSION['pseudo'] . '</span>';
-			echo '</p>';			
+			echo '<tr class="legende">';
+			echo '<th class="col1">Anomymes</th>';
+			echo '<th class="col2">' . $_SESSION['pseudo'] . '</th>';
+			echo '<th class="col3">Anomymes</th>';
+			echo '<th class="col4">' . $_SESSION['pseudo'] . '</th>';
+			echo '</tr>';			
 			
 			foreach ($catid as $item)
 			{
-				echo '<p class="autre">';
-				echo '<span class="col1"><input type="checkbox" name="checkbox[]" value="liste-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[2]). '/>'. $item[1] . '</span>';
-				echo '<span class="col2"><input type="checkbox" name="checkbox[]" value="liste-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[3]). '/>'. $item[1] . '</span>';
-				echo '<span class="col3"><input type="checkbox" name="checkbox[]" value="fiche-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[4]). '/>'. $item[1] . '</span>';
-				echo '<span class="col4"><input type="checkbox" name="checkbox[]" value="fiche-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[5]). '/>'. $item[1] . '</span>';
-				echo '</p>';
+				echo '<tr class="autre">';
+				echo '<td class="col1"><input type="checkbox" name="checkbox[]" value="liste-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[2]). '/>'. $item[1] . '</td>';
+				echo '<td class="col2"><input type="checkbox" name="checkbox[]" value="liste-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[3]). '/>'. $item[1] . '</td>';
+				echo '<td class="col3"><input type="checkbox" name="checkbox[]" value="fiche-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[4]). '/>'. $item[1] . '</td>';
+				echo '<td class="col4"><input type="checkbox" name="checkbox[]" value="fiche-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[5]). '/>'. $item[1] . '</td>';
+				echo '</tr>';
 			}
-		echo '</div>';
-		echo '<input type="submit" value="Valider" />
-		</form>';
+		echo '</table>';	
+		?>
 		
-		echo 'Catégories à ajouter :';
-		echo '<form action="check_cat.php" method="post" >
+		<input type="submit" value="Valider" />
+		</form>
+		<br/>
+		Catégories à ajouter :
+		<form action="check_cat.php" name="catadd" method="post" >
 		<div class="catdelete ">
-		<span>
-		<select name="categ">'; 
-		echo '<option value="chaine">Chaîne de caractères</option>';
-		echo '<option value="entier">Entier</option>';
-		echo '<option value="decimal">Décimal</option>';
-		echo '<option value="date">Date</option>';
-		echo '</select>
-		</span>
-		<span>
-		<input type="entry" name="catadd" />
-		<input type="submit" value="Ajouter" />
-		</span>
+				<span>
+					<select name="categ"> 
+						<option value="chaine">Chaîne de caractères</option>
+						<option value="entier">Entier</option>
+						<option value="decimal">Décimal</option>
+						<option value="date">Date</option>
+					</select>
+			</span>
+			<span>
+			
+				<input type="entry" name="catnom" onfocus="selectAll('catadd.catnom')" value="Nom de la catégorie" />
+				<input type="submit" value="Ajouter" />
+			</span>
 		</div>
-		</form>';
+		</form>
 		
-		echo 'Catégories à supprimer :';
-		echo '<form action="check.php" method="post" >
-		<div class="catdelete ">
-				
-		<select name="categ">'; 
-		echo '<option value="val">--</option>';
-		foreach ($catid as $item)
-		echo '<option value="val">'. $item[1] . '</option>';
-		echo '</select>
-		<input type="submit" value="Supprimer" />
-		</div>
+		Catégories à supprimer :
+		<form action="check_delete.php" method="post" >
+			<div class="catdelete ">
+				<select name="categ"> 
+				<option value="val">--</option>
+				<?php
+				foreach ($catid as $item)
+				echo '<option value="val">'. $item[1] . '</option>';
+				echo '</select>
+				<input type="submit" value="Supprimer" />
+			</div>
 		</form>';
 	}
 	else
