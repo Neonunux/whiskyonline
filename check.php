@@ -87,20 +87,6 @@
 		echo 'pas de changement';
 	}
 
-	/*
-	UPDATE `whiskyonline`.`raph_categ` SET
-	`fiche_priv` = '1',
-	`fiche_pub` = '1',
-	`liste_priv` = '1',
-	`liste_pub` = '1'
-	WHERE `raph_categ`.`id` =7;
-
-	effacer une colonne :
-	UPDATE `raph_categ` SET `fiche_pub` = '',
-	`fiche_priv` = '',
-	`liste_pub` = '',
-	`liste_priv` = ''
-	*/
 	
 	?>
 		<div class="texte">

@@ -135,11 +135,11 @@
 		Catégories à supprimer :
 		<form action="check_delete.php" method="post" >
 			<div class="catdelete ">
-				<select name="categ"> 
+				<select name="selection_delete"> 
 				<option value="val">--</option>
 				<?php
 				foreach ($catid as $item)
-				echo '<option value="val">'. $item[1] . '</option>';
+				echo '<option value="val'.$item[0].'">'. $item[1] . '</option>';
 				echo '</select>
 				<input type="submit" value="Supprimer" />
 			</div>

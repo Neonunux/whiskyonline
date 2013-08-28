@@ -43,13 +43,45 @@ class Categories
 		//mysql_close();
 		return $catid;
 	}
+
+	 	public function GetLastItem($id)
+	{
+		$sql ='SELECT count(*) FROM `raph_categ` WHERE 1' . $id ;
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		$count=mysql_fetch_assoc($req);
+		return $count;
+	}
+
 	
- 	public function getId()
+	 	public function ClearCateg($id)
+	{
+		$sql ='DELETE FROM `whiskyonline`.`raph_categ` WHERE `raph_categ`.`id` = ' . $id ;
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	}
+	
+	public function ClearRaph($id)
+	{
+		$sql ='ALTER TABLE `whiskyonline`.`raph` DROP `' . $id . '`';
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	}
+	
+ 	
+	public function getId()
 	{
 		$sql ='SELECT * FROM `whiskyonline`.`raph_categ`';
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		while($don = mysql_fetch_assoc($req))
 			$catd[]=$don['id'];
+
+		return $catd;
+	}
+
+	public function getName($id)
+	{
+		$sql ='SELECT catnom FROM `whiskyonline`.`raph_categ` WHERE id='.$id;
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		$don = mysql_fetch_assoc($req);
+		$catd=$don['catnom'];
 
 		return $catd;
 	}

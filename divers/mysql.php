@@ -42,15 +42,6 @@
 
 	Renommer une cat :
 	ALTER TABLE `raph_categ` CHANGE `fich_priv_visib` `fiche_priv_visib` TINYINT( 1 ) NOT NULL 
-
-	Définir une catégorie :
-	UPDATE `whisky`.`raph_categ` SET `fiche_priv` = '1',
-	`fiche_pub` = '1',
-	`liste_priv` = '1',
-	`liste_pub` = '1' WHERE `raph_categ`.`id` =7;
-
-	Effacer une colonne :
-	UPDATE `raph_categ` SET `fiche_pub_` = ''
 	*/
 
 ?>
