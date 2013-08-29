@@ -8,15 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 
 	<?php include("include/header.php"); ?>
-	<script language="Javascript">
-	<!--
-	function selectAll(theField) {
-	var tempval=eval("document."+theField)
-	tempval.focus()
-	tempval.select()
-	}
-	//-->
-	</script>
+
 	
 	<body>
 	
@@ -72,10 +64,13 @@
 		<div class="essai">
 			<p>
 			<form name="adminom" >
-			<span>login : <input type="entry" name="pseudo" onfocus="selectAll(\'adminom.pseudo\')" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></form></span><br/>
+			<span>login : <input type="entry" name="pseudo" onfocus="selectAll(\'adminom.pseudo\')" onMouseUp="return false" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			</form>
 			<form name="adminpswd" >
-			<span>Changement du mot de passe : <input type="password" name="passwd" onfocus="selectAll(\'adminpswd.passwd\')" value="'. $_SESSION['pseudo'].'" /></span><br/>
-			<span>Confirmation du mot de passe : <input type="password" name="passwd" onfocus="selectAll(\'adminpswd.passwd\')" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			<span>Changement du mot de passe : <input type="password" name="passwd1" onfocus="selectAll(\'adminpswd.passwd1\')" onMouseUp="return false" value="'. $_SESSION['pseudo'].'" /></span><br/></form>
+			<form name="adminpswd1">
+			<span>Confirmation du mot de passe : <input type="password" name="passwd2" onfocus="selectAll(\'adminpswd1.passwd2\')" onMouseUp="return false" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
+			</form>
 			</p>
 		</div>
 		<br/>
@@ -126,7 +121,7 @@
 			</span>
 			<span>
 			
-				<input type="entry" name="catnom" onfocus="selectAll('catadd.catnom')" value="Nom de la catégorie" />
+				<input type="entry" name="catnom" onfocus="selectAll('catadd.catnom')" onMouseUp="return false" value="Nom de la catégorie" />
 				<input type="submit" value="Ajouter" />
 			</span>
 		</div>
@@ -149,8 +144,9 @@
 		echo 'pas d"id';
 	echo '</div>';
    ?>
-	</body>
 	<!-- Le pied de page -->
 	<?php include("include/pied.php"); ?>
+   </body>
+
 </html>
  
