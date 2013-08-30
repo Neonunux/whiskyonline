@@ -19,6 +19,10 @@
 		include("bdd.php");
 		include_once("class/Categories.class.php");
 		
+		echo '<div class="titre">';
+		echo '<h1>Vérifications</h1>';
+		echo '</div>';
+		
 		$instcat = new Categories();
 		$catid = $instcat->getCategories();
 		$cid = $instcat->getId();
@@ -93,8 +97,8 @@
 		Revenir à la page <a href="administration.php">administration</a><br/>
 		Revenir à la page <a href="index.php">liste</a> des whisky
 	</div>
-
-	</body>
 	<!-- Le pied de page -->
 	<?php include("include/pied.php"); ?>
+	</body>
+
 </html>

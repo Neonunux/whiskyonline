@@ -43,15 +43,56 @@ class Categories
 		//mysql_close();
 		return $catid;
 	}
-
-	 	public function GetLastItem($id)
+	 	public function createRaphCateg($catnom)
 	{
-		$sql ='SELECT count(*) FROM `raph_categ` WHERE 1' . $id ;
+		$sql ='SET NAMES UTF8';	
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-		$count=mysql_fetch_assoc($req);
-		return $count;
-	}
+		$sql='INSERT INTO `whiskyonline`.`raph_categ` (
+		`id` ,
+		`catnom` ,
+		`fiche_priv` ,
+		`fiche_pub` ,
+		`liste_priv` ,
+		`liste_pub`)
+		VALUES (NULL , \''.$catnom.'\', \'1\', \'1\', \'1\', \'1\');';
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		
+	}	
 
+	 	public function createRaph($categ, $catnom)
+	{	
+		$sql ='SET NAMES UTF8';	
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+
+		if ($categ == 'chaine')
+		$sql='ALTER TABLE `whiskyonline`.`raph` ADD `'.$catnom.'` VARCHAR( 255 ) NOT NULL';
+		
+		if ($categ == 'entier')
+		$sql='ALTER TABLE `whiskyonline`.`raph` ADD `'.$catnom.'` INT NOT NULL';
+		
+		if ($categ == 'decimal')
+		$sql='ALTER TABLE `whiskyonline`.`raph` ADD `'.$catnom.'` FLOAT NOT NULL ';
+		
+		if ($categ == 'date')
+		$sql='ALTER TABLE `whiskyonline`.`raph` ADD `'.$catnom.'` DATE NOT NULL ';
+		
+		if ($categ == 'booleen')
+		$sql='ALTER TABLE `whiskyonline`.`raph` ADD `'.$catnom.'` BOOLEAN NOT NULL FIRST ';
+		
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+	}	
+	
+	 	public function GetLastItem()
+	{
+		$sql ='SELECT id FROM `whiskyonline`.`raph_categ` WHERE 1';
+		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+		while ($data=mysql_fetch_assoc($req))
+		{
+			$fin[]=$data['id'];
+		}
+		$last=end($fin);
+		return $last;
+	}
 	
 	 	public function ClearCateg($id)
 	{
@@ -64,7 +105,6 @@ class Categories
 		$sql ='ALTER TABLE `whiskyonline`.`raph` DROP `' . $id . '`';
 		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 	}
-	
  	
 	public function getId()
 	{

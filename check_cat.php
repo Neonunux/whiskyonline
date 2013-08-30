@@ -19,45 +19,40 @@
 	
 	$instcat= new Categories();
 	
-	/*
-	ALTER TABLE `raph` ADD `roro` BOOLEAN NOT NULL FIRST 
-	ALTER TABLE `raph` ADD `rara` INT NOT NULL AFTER `pays`
-	ALTER TABLE `raph` ADD `rere` VARCHAR( 255 ) NOT NULL 
-	*/
 	echo '<div class="titre">';
-	echo '<h1>Confirmation de suppression</h1>';
+	echo '<h1>CONFIRMATION DE CRÉATION</h1>';
 	echo '</div>';
 	
 	echo '<div class="texte">';
-
-	if (isset($_GET['delete']))
-	{
-		echo 'suppression de "'. $instcat->getName($_GET['delete']).'" effectuée !';
-		echo '<br/><br/>retour à la page <a href="administration.php">admin</a>';
-		echo 'fait : ';
-		$instcat->ClearCateg($_GET['delete']);
-		echo '<br/>fait : ';
-		$instcat->ClearRaph($_GET['delete']);
-	}
 	
-	if (isset($_POST['selection_delete']))
-	{
-		//echo $_POST['selection_delete'];
-		$id = str_replace("val", "", $_POST['selection_delete']);
-		echo 'Are you sure you want to effacer the catégorie : '. $_POST['selection_delete'] . 'dans' . $instcat->getName($_POST['selection_delete']) ;
-		echo '<br/>Vous allez perdre toutes les informations contenues dans cette catégorie !';
-		echo '<form action="check_delete.php?delete='.$_POST['selection_delete'].'" name="catadd" method="post" >
-			<input type="submit" value="Confirmation" />
-		</form>';
-		
-	}
+	
+	//On créé d'abord raph_categ
+	$instcat->createRaphCateg($_POST['catnom']);
+	
+	// Ensuite on récupère l'id qui n'est pas forcément n+1 s'il y a eu des suppressions avant
+	$new=$instcat->GetLastItem();
+
+	/* puis :*/	
+	$instcat->createRaph($_POST['categ'], $new);
+	
+	echo $_POST['categ'];
+	echo '<br/>';
+	echo $_POST['catnom'];
+	echo '<br/>';
+	
+	
+	// d'abord création puis récupération de l'indice sinon il peut y avoir des bugs sur l'indice ramené depuis MySQL
+	
+	echo 'Création de "'.$_POST['catnom'].'" effectuée en position '.$new.' !';
+	echo '<br/><br/>retour à la page <a href="administration.php">admin</a>';
+	
 	echo '</div>';
 	
 	?>
-	
-	</body>
 	<!-- Le pied de page -->
-	<?php include("include/pied.php"); ?>
+	<?php include("include/pied.php"); ?>	
+	</body>
+
 	
 </html>
 

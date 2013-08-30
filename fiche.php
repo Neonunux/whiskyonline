@@ -12,7 +12,9 @@
 		include("bdd.php");
 		include_once("class/Categories.class.php");
 		
+		echo '<div class="titre">';
 		echo '<h1>Fiches</h1>';
+		echo '</div>';
 		
 		echo '<div class="texte">';
 		if ((isset($_POST['id_whisky'])) AND (is_numeric($_POST['id_whisky'])))
@@ -87,8 +89,10 @@
 		echo '</div>';
 		echo '</div>';
 	?>
-   </body>
    <!-- Le pied de page -->
-   <?php include("include/pied.php"); ?>
+	<?php include("include/pied.php"); ?>
+	</body>
+
+
 </html>
  

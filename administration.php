@@ -62,7 +62,6 @@
 		echo '<div class="texte">';
 		echo '
 		<div class="essai">
-			<p>
 			<form name="adminom" >
 			<span>login : <input type="entry" name="pseudo" onfocus="selectAll(\'adminom.pseudo\')" onMouseUp="return false" value="'.$_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
 			</form>
@@ -71,7 +70,6 @@
 			<form name="adminpswd1">
 			<span>Confirmation du mot de passe : <input type="password" name="passwd2" onfocus="selectAll(\'adminpswd1.passwd2\')" onMouseUp="return false" value="'. $_SESSION['pseudo'].'" /><input type="submit" value="Changer" /></span><br/>
 			</form>
-			</p>
 		</div>
 		<br/>
 		Visibilités des catégories :<br/>';
@@ -96,10 +94,10 @@
 			foreach ($catid as $item)
 			{
 				echo '<tr class="autre">';
-				echo '<td class="col1"><input type="checkbox" name="checkbox[]" value="liste-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[2]). '/>'. $item[1] . '</td>';
-				echo '<td class="col2"><input type="checkbox" name="checkbox[]" value="liste-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[3]). '/>'. $item[1] . '</td>';
-				echo '<td class="col3"><input type="checkbox" name="checkbox[]" value="fiche-pub-'.$item[0].'"' . $instcat->getAutoCheck($item[4]). '/>'. $item[1] . '</td>';
-				echo '<td class="col4"><input type="checkbox" name="checkbox[]" value="fiche-priv-'.$item[0].'"' . $instcat->getAutoCheck($item[5]). '/>'. $item[1] . '</td>';
+				echo '<td class="col1"><input type="checkbox" name="checkbox[]" value="liste-pub-'.$item[0].'" ' . $instcat->getAutoCheck($item[2]). ' />'. $item[1] . '</td>';
+				echo '<td class="col2"><input type="checkbox" name="checkbox[]" value="liste-priv-'.$item[0].'" ' . $instcat->getAutoCheck($item[3]). ' />'. $item[1] . '</td>';
+				echo '<td class="col3"><input type="checkbox" name="checkbox[]" value="fiche-pub-'.$item[0].'" ' . $instcat->getAutoCheck($item[4]). ' />'. $item[1] . '</td>';
+				echo '<td class="col4"><input type="checkbox" name="checkbox[]" value="fiche-priv-'.$item[0].'" ' . $instcat->getAutoCheck($item[5]). ' />'. $item[1] . '</td>';
 				echo '</tr>';
 			}
 		echo '</table>';	
@@ -114,13 +112,14 @@
 				<span>
 					<select name="categ"> 
 						<option value="chaine">Chaîne de caractères</option>
+						<option value="booleen">booléen</option>					
 						<option value="entier">Entier</option>
 						<option value="decimal">Décimal</option>
 						<option value="date">Date</option>
 					</select>
 			</span>
-			<span>
 			
+			<span>
 				<input type="entry" name="catnom" onfocus="selectAll('catadd.catnom')" onMouseUp="return false" value="Nom de la catégorie" />
 				<input type="submit" value="Ajouter" />
 			</span>
@@ -139,6 +138,7 @@
 				<input type="submit" value="Supprimer" />
 			</div>
 		</form>';
+		
 	}
 	else
 		echo 'pas d"id';

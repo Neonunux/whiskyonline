@@ -12,7 +12,9 @@
 	session_destroy();
    include("include/menu.php");?>
    
+   <div class="titre" >
    <h1>Déconnexion</h1>
+   </div>
    
    <div class="texte" >
 
@@ -27,9 +29,10 @@
 	echo 'Vous avez été déconnecté';
 	?>   
 	</div>
-   </body>
    <!-- Le pied de page -->
 	   <?php include("include/pied.php"); ?>
+	</body>
+
 
 </html>
  

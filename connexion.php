@@ -3,7 +3,10 @@
   <?php include("include/header.php"); ?>
   
    <body>
+		<div class="titre">
 		<h1>Connexion</h1>
+		</div>
+		
 		<?php include ("include/menu.php"); ?>
 		<div class="texte">
 		<form action="administration.php" method="post">
@@ -17,8 +20,9 @@
 		</p>
 		</form>	
 		</div>
-   </body>
    <!-- Le pied de page -->
 	   <?php include("include/pied.php"); ?>
+		</body>
+
 
 </html>

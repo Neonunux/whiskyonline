@@ -29,9 +29,7 @@
 	{
 		echo 'suppression de "'. $instcat->getName($_GET['delete']).'" effectuée !';
 		echo '<br/><br/>retour à la page <a href="administration.php">admin</a>';
-		echo 'fait : ';
 		$instcat->ClearCateg($_GET['delete']);
-		echo '<br/>fait : ';
 		$instcat->ClearRaph($_GET['delete']);
 	}
 	
@@ -49,10 +47,10 @@
 	echo '</div>';
 	
 	?>
-	
-	</body>
 	<!-- Le pied de page -->
-	<?php include("include/pied.php"); ?>
+	<?php include("include/pied.php"); ?>	
+	</body>
+
 	
 </html>
 

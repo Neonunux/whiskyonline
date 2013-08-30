@@ -17,7 +17,9 @@
 	include("class/Categories.class.php");
 	$instcat = new Categories();
 	
+	echo '<div class="titre">';
 	echo '<h1>Site des Whisky de Raph</h1>';
+	echo '</div>';
 	
 	echo '<div class="texte">';
 	// VISIBILITÉ PUB -> VIS_PRIV
@@ -80,10 +82,10 @@
 	mysql_close();
 	echo '</div>';
 	?>
-	
-	</body>
-	<!-- Le pied de page -->
+		<!-- Le pied de page -->
 	<?php include("include/pied.php"); ?>
+	</body>
+
 
 </html>
  
