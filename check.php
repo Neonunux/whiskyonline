@@ -46,6 +46,7 @@
 			if ($ro == 'listepub')
 			  $listepub[] = $id;
 		}
+		
 		/*	
 		echo '<pre>';
 		echo 'id : ';
@@ -56,13 +57,13 @@
 		// RESET VISIBILITE MYSQL
 		foreach ($cid as $item)
 		{
-		$sql ='UPDATE `raph_categ` SET 
-		`fiche_pub` = \'0\',
-		`fiche_priv` = \'0\',
-		`liste_pub` = \'0\',
-		`liste_priv` = \'0\' 
-		WHERE `raph_categ`.`id` =' . $item;
-		$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+			$sql ='UPDATE `raph_categ` SET 
+			`fiche_pub` = \'0\',
+			`fiche_priv` = \'0\',
+			`liste_pub` = \'0\',
+			`liste_priv` = \'0\' 
+			WHERE `raph_categ`.`id` =' . $item;
+			$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 		}
 		
 		foreach ($listepriv as $item)
